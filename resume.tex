@@ -1,113 +1,38 @@
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-%	The MIT License (MIT)
-%
-%	Copyright (c) 2021 Jitin Nair
-%
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
-%	
-%
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-
 %----------------------------------------------------------------------------------------
-%	DOCUMENT DEFINITION
+%   DOCUMENT DEFINITION
 %----------------------------------------------------------------------------------------
-
-% article class because we want to fully customize the page and not use a cv template
 \documentclass[a4paper,12pt]{article}
 
 %----------------------------------------------------------------------------------------
-%	FONT
-%----------------------------------------------------------------------------------------
-
-% % fontspec allows you to use TTF/OTF fonts directly
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% % modified for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES
+%   PACKAGES
 %----------------------------------------------------------------------------------------
 \usepackage{url}
-\usepackage{parskip} 	
-
-%other packages for formatting
+\usepackage{parskip}    
 \RequirePackage{color}
 \RequirePackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[scale=0.9]{geometry}
-
-%tabularx environment
 \usepackage{tabularx}
-
-%for lists within experience section
 \usepackage{enumitem}
-
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
-
-%to prevent spillover of tabular into next pages
 \usepackage{supertabular}
-\usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
-
-%custom \section
-\usepackage{titlesec}				
+\usepackage{titlesec}               
 \usepackage{multicol}
 \usepackage{multirow}
+\usepackage{fontawesome5}
+\usepackage[unicode, draft=false]{hyperref}
 
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
+% Centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+% Section formatting
 \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{10pt}{10pt}
 
-%for publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
-
-%Setup hyperref package, and colours for links
-\usepackage[unicode, draft=false]{hyperref}
+% Colors
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
 \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{citations.bib}
-\setlength\bibitemsep{1em}
 
-%for social icons
-\usepackage{fontawesome5}
-
-%debug page outer frames
-%\usepackage{showframe}
-
-
-% job listing environments
-\newenvironment{jobshort}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    }
-    {
-    }
-
+% Job listing environment (Used for consistency)
 \newenvironment{joblong}[2]
     {
     \begin{tabularx}{\linewidth}{@{}l X r@{}}
@@ -122,106 +47,77 @@
     }
 
 %----------------------------------------------------------------------------------------
-%	BEGIN DOCUMENT
+%   BEGIN DOCUMENT
 %----------------------------------------------------------------------------------------
 \begin{document}
-
-% non-numbered pages
 \pagestyle{empty} 
-%----------------------------------------------------------------------------------------
-%	TITLE
-%----------------------------------------------------------------------------------------
 
-% \begin{tabularx}{\linewidth}{ @{}X X@{} }
-% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
-% \raisebox{-0.05\height}\faGithub\ username \ | \
-% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
-% \end{tabularx}
-
+%----------------------------------------------------------------------------------------
+%   TITLE
+%----------------------------------------------------------------------------------------
 \begin{tabularx}{\linewidth}{@{} C @{}}
 \Huge{Miles Zelasko} \\[7.5pt]
 \href{https://linkedin.com/in/miles-zelasko}{\raisebox{-0.05\height}\faLinkedin\ miles-zelasko} \ $|$ \ 
 \color{linkcolour}{\raisebox{-0.05\height}\faMapMarker\ South Portland, ME} \ $|$ \
 \href{mailto:miles.zelasko@unh.edu}{\raisebox{-0.05\height}\faEnvelope \ miles.zelasko@unh.edu} \ $|$ \ 
-\href{tel:+12076325840}{\raisebox{-0.05\height}\faMobile \ +1 (207) 632-5840} \\
+\href{tel:2076325840}{\raisebox{-0.05\height}\faMobile \ (207) 632-5840} \\
 \end{tabularx}
 
 %----------------------------------------------------------------------------------------
-% EXPERIENCE SECTIONS
-%----------------------------------------------------------------------------------------
-
-%Interests/ Keywords/ Summary
-%\section{Summary}
-%This CV can also be automatically complied and published using GitHub Actions. For details, %\href{https://github.com/jitinnair1/autoCV}{click here}.
-
-%Experience
-\section{Work Experience}
-
-\begin{joblong}{Portland Discovery Land \& Sea Tours}{June 2021 - August 2024}
-\item Entrusted with making sales, prospecting for customers, and efficiently carrying out the boarding process for
-over 500 customers daily
-\item Trained new and returning team members on updated point-of-sale systems and operational procedures,
-providing hands-on supervision
-\item Supported back-office operations, gaining proficiency in telecommunications and internal administrative
-systems
-\end{joblong}
-  
-%Projects
-\section{Projects}
-
-\begin{tabularx}{\linewidth}{@{}l X r@{}}
-\textbf{Rock Climbing Training Tool} & \hfill & June 2024 -- June 2025 \\[3.75pt]
-\end{tabularx}
-\begin{minipage}[t]{\linewidth}
-\begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt, label=--]
-    \item Developed a training tool utilizing SolidWorks to help increase finger strength and climbing performance using input from climbers of varying skill levels.
-    \item Prototyped and tested multiple versions, resulting in a $>50\%$ weight decrease \& $43\%$ cost of manufacturing decrease between first and final iteration.
-\end{itemize}
-\end{minipage}
-
-%----------------------------------------------------------------------------------------
-%	EDUCATION
+%   EDUCATION (Moved to top - Critical for Engineering Students)
 %----------------------------------------------------------------------------------------
 \section{Education}
-
 \begin{tabularx}{\linewidth}{@{}l X r@{}}
-\textbf{Bachelor of Science in Mechanical Engineering} & \hfill & August 2023 -- May 2027 \\
+\textbf{Bachelor of Science in Mechanical Engineering} & \hfill & Aug 2023 -- May 2027 \\
 \textit{University of New Hampshire} & & \\[3.75pt]
 \end{tabularx}
 \begin{minipage}[t]{\linewidth}
 \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt, label=--]
-    \item \small \textbf{Cumulative GPA:} 3.4/4.0
-    \item \small \textbf{Relevant Coursework:} Thermal System Analysis and Design, Heat Transfer, Systems Modeling, Machine Design
+    \item \textbf{Cumulative GPA:} 3.4/4.0
+    \item \textbf{Relevant Coursework:} Thermal System Analysis and Design, Heat Transfer, Systems Modeling, Machine Design
 \end{itemize}
 \end{minipage}
 
 %----------------------------------------------------------------------------------------
-%	PUBLICATIONS
-%----------------------------------------------------------------------------------------
-\section{Extracurricular Activities}
-\begin{joblong}{RL$\mathbf{^2}$}{September 2025 - Present}
-\item Attended weekly graduate-level reading group dedicated to discussing literature on reinforcement learning
-topics
-\item Gained familiarity with foundational concepts relevant to dynamic programming and sequential decision making
-\end{joblong}
-
-\begin{joblong}{American Society of Mechanical Engineers}{September 2023 - Present}
-\item Engaged in meetings with leading engineering companies and industry experts, discussing emerging trends
-and career development strategies within engineering
-
-\end{joblong}
-
-%----------------------------------------------------------------------------------------
-%	SKILLS
+%   SKILLS (Moved up - Engineering scanners look for Solidworks/MATLAB early)
 %----------------------------------------------------------------------------------------
 \section{Skills}
 \begin{tabularx}{\linewidth}{@{}l X@{}}
-Software  &  \normalsize{Solidworks, Visual Studio Code, Microsoft Office Suite}\\
-Certifications &  \normalsize{SOLIDWORKS Associate (C-LXSEG32AYR)}\\
-Programming Languages &  \normalsize{Lua, MATLAB, Python, Julia}\\
+\textbf{Software} & SolidWorks, Visual Studio Code, Microsoft Office Suite \\
+\textbf{Certifications} & SOLIDWORKS Associate (CSWA: C-LXSEG32AYR) \\
+\textbf{Programming} & MATLAB, Python, Julia, Lua \\
 \end{tabularx}
 
-\vfill
-%\center{\footnotesize Last updated: \today}
+%----------------------------------------------------------------------------------------
+%   PROJECTS
+%----------------------------------------------------------------------------------------
+\section{Projects}
+\begin{joblong}{Rock Climbing Training Tool}{June 2024 -- June 2025}
+    \item Developed a training tool utilizing SolidWorks to increase finger strength, incorporating feedback from diverse skill levels.
+    \item Prototyped and tested multiple iterations, achieving a $>50\%$ weight reduction and $43\%$ manufacturing cost decrease.
+\end{joblong}
+
+%----------------------------------------------------------------------------------------
+%   WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+\section{Work Experience}
+\begin{joblong}{Portland Discovery Land \& Sea Tours}{June 2021 -- August 2024}
+    \item Managed sales and boarding logistics for over 500 daily customers, ensuring operational efficiency.
+    \item Trained team members on point-of-sale systems and administrative procedures.
+    \item Supported back-office operations and internal administrative telecommunications.
+\end{joblong}
+
+%----------------------------------------------------------------------------------------
+%   EXTRACURRICULAR ACTIVITIES
+%----------------------------------------------------------------------------------------
+\section{Extracurricular Activities}
+\begin{joblong}{RL$\mathbf{^2}$ (Reinforcement Learning Group)}{Sept 2025 -- Present}
+    \item Participate in graduate-level reading groups focused on literature regarding sequential decision making.
+    \item Gained familiarity with foundational concepts in dynamic programming and reinforcement learning.
+\end{joblong}
+
+\begin{joblong}{American Society of Mechanical Engineers (ASME)}{Sept 2023 -- Present}
+    \item Engage with industry experts regarding emerging trends and career development in Mechanical Engineering.
+\end{joblong}
 
 \end{document}
