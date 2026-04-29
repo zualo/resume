@@ -1,134 +1,208 @@
-%----------------------------------------------------------------------------------------
-%   DOCUMENT DEFINITION
-%----------------------------------------------------------------------------------------
-\documentclass[a4paper,12pt]{article}
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
 
-%----------------------------------------------------------------------------------------
-%   PACKAGES
-%----------------------------------------------------------------------------------------
-\usepackage{url}
-\usepackage{parskip}    
-\RequirePackage{color}
-\RequirePackage{graphicx}
-\usepackage[dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
-\usepackage{tabularx}
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
 \usepackage{enumitem}
-\usepackage{supertabular}
-\usepackage{titlesec}               
-\usepackage{multicol}
-\usepackage{multirow}
-\usepackage{fontawesome5}
-\usepackage[unicode, draft=false]{hyperref}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
 
-% Centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
 
-% Section formatting
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
 
-% Colors
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
 
-% Job listing environment (Used for consistency)
-\newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-    }
-    {
-    \end{itemize}
-    \end{minipage}    
-    }
 
-%----------------------------------------------------------------------------------------
-%   BEGIN DOCUMENT
-%----------------------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \begin{document}
-\pagestyle{empty} 
 
-%----------------------------------------------------------------------------------------
-%   TITLE
-%----------------------------------------------------------------------------------------
-\begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Miles Zelasko} \\[7.5pt]
-\href{https://linkedin.com/in/miles-zelasko}{\raisebox{-0.05\height}\faLinkedin\ miles-zelasko} \ $|$ \ 
-\color{linkcolour}{\raisebox{-0.05\height}\faMapMarker\ South Portland, ME} \ $|$ \
-\href{mailto:miles.zelasko@unh.edu}{\raisebox{-0.05\height}\faEnvelope \ miles.zelasko@unh.edu} \ $|$ \ 
-\href{tel:2076325840}{\raisebox{-0.05\height}\faMobile \ (207) 632-5840} \\
-\end{tabularx}
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
 
-%----------------------------------------------------------------------------------------
-%   EDUCATION 
-%----------------------------------------------------------------------------------------
+\begin{center}
+    \textbf{\Huge \scshape Miles Zelasko} \\ \vspace{1pt}
+    \small 207-632-5840 $|$ \href{mailto:miles.zelasko@unh.edu}{\underline{miles.zelasko@unh.edu}} $|$ 
+    \href{https://linkedin.com/in/miles-zelasko}{\underline{linkedin.com/in/miles-zelasko}} $|$
+    \href{https://github.com/zualo}{\underline{github.com/zualo}}
+\end{center}
+
+
+%-----------EDUCATION-----------
 \section{Education}
-\begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{Bachelor of Science in Mechanical Engineering} & \hfill & Aug 2023 -- May 2027 \\
-    \textit{University of New Hampshire} & & \\[3.75pt]
-\end{tabularx}
-\begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt, label=--]
-        \item \textbf{Cumulative GPA:} 3.4/4.0
-        \item \textbf{Relevant Coursework:} Thermal System Analysis and Design, Heat Transfer, Systems Modeling, Machine Design
-    \end{itemize}
-\end{minipage}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of New Hampshire}{Durham, NH}
+      {Bachelor of Science in Mechanical Engineering $|$ GPA: 3.4/4.0}{Expected May 2027}
+  \resumeSubHeadingListEnd
 
-%----------------------------------------------------------------------------------------
-%   SKILLS 
-%----------------------------------------------------------------------------------------
-\section{Skills}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-    \textbf{Software} & SolidWorks, Visual Studio Code, Microsoft Office Suite \\
-    \textbf{Certifications} & SOLIDWORKS Associate (CSWA: C-LXSEG32AYR) \\
-    \textbf{Programming} & MATLAB, Python, Julia, Lua \\
-\end{tabularx}
 
-%----------------------------------------------------------------------------------------
-%   PROJECTS
-%----------------------------------------------------------------------------------------
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Senior Sales Associate}{June 2021 -- August 2024}
+      {Portland Discovery Land \& Sea Tours}{Portland, ME}
+      \resumeItemListStart
+        \resumeItem{Managed sales and boarding logistics for over 500 daily customers, ensuring operational efficiency}
+        \resumeItem{Trained team members on point-of-sale systems and administrative procedures}
+        \resumeItem{Supported back-office operations and internal administrative telecommunications}
+      \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
 \section{Projects}
-\begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{Rock Climbing Training Tool} & \hfill & June 2024 -- June 2025 \\[3.75pt]
-\end{tabularx}
-\begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt, label=--]
-        \item Developed a training tool utilizing SolidWorks to increase finger strength, incorporating feedback from diverse skill levels.
-        \item Prototyped and tested multiple iterations, achieving a $>50\%$ weight reduction and $43\%$ manufacturing cost decrease.
-    \end{itemize}
-\end{minipage}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Data Center Thermal Management \& Cooling System Design} $|$ \emph{MATLAB, CoolProp}}{December 2025}
+          \resumeItemListStart
+            \resumeItem{Independently developed parametric Rankine cycle and vapor-compression refrigeration models in MATLAB, evaluating turbine inlet conditions and condenser temperature effects on thermal efficiency and COP}
+            \resumeItem{Selected optimal facility location through analysis of annual climate data across four ASHRAE regions using ASOS/AWOS datasets, establishing thermal boundary conditions for the integrated system design}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Turbojet Engine Cycle Analysis \& UAV Performance} $|$ \emph{MATLAB, CoolProp}}{October 2025}
+          \resumeItemListStart
+            \resumeItem{Independently implemented a complete Brayton cycle model in MATLAB with constant and variable specific heat assumptions, analyzing pressure ratio and turbine inlet temperature effects on efficiency and kinetic energy}
+            \resumeItem{Modeled engine and aerodynamic efficiency as a function of altitude using ISA atmospheric data, identifying\\ $\sim$6,000 m as the optimal cruise altitude for a NATO Class II UAV}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Rock Climbing Training Tool} $|$ \emph{SolidWorks}}{June 2024 -- June 2025}
+          \resumeItemListStart
+            \resumeItem{Designed a finger strength training tool in SolidWorks, iterating based on feedback across beginner to advanced climbers to refine load and grip geometry}
+            \resumeItem{Prototyped and tested multiple iterations, achieving a $>$50\% weight reduction and 43\% manufacturing cost decrease}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
 
-%----------------------------------------------------------------------------------------
-%   WORK EXPERIENCE
-%----------------------------------------------------------------------------------------
-\section{Work Experience}
-\begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{Senior Sales Associate} & \hfill & June 2021 -- August 2024 \\
-    \textit{Portland Discovery Land {\upshape\&} Sea Tours} & & \\[3.75pt]
-\end{tabularx}
-\begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt, label=--]
-        \item Managed sales and boarding logistics for over 500 daily customers, ensuring operational efficiency.
-        \item Trained team members on point-of-sale systems and administrative procedures.
-        \item Supported back-office operations and internal administrative telecommunications.
-    \end{itemize}
-\end{minipage}
 
-%----------------------------------------------------------------------------------------
-%   EXTRACURRICULAR ACTIVITIES
-%----------------------------------------------------------------------------------------
-\section{Extracurricular Activities}
-\begin{joblong}{RL$\mathbf{^2}$ (Reinforcement Learning Group)}{Sept 2025 -- Present}
-    \item Participated in graduate-level reading groups focused on literature regarding sequential decision making.
-    \item Gained familiarity with foundational concepts in dynamic programming and reinforcement learning.
-\end{joblong}
 
-\begin{joblong}{American Society of Mechanical Engineers (ASME)}{Sept 2023 -- Present}
-    \item Engaged with industry experts regarding emerging trends and career development in Mechanical Engineering.
-\end{joblong}
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, MATLAB, Julia, Lua/LuaU} \\
+     \textbf{Software \& Tools}{: Git, VS Code, SolidWorks} \\
+     \textbf{Libraries}{: pandas, NumPy, Matplotlib, CoolProp, DataFrames.jl, Plots.jl, Measurements.jl, Statistics.jl} \\
+     \textbf{Certifications}{: CSWA (Certified SolidWorks Associate)}
+    }}
+ \end{itemize}
 
+ \section{Extracurriculars}
+    \resumeSubHeadingListStart
+        \resumeSubheading{RL$\mathbf{^2}$}{September 2025--Present}{Member}{University of New Hampshire}
+            \resumeItemListStart
+                \resumeItem{Participated in graduate-level reading groups on reinforcement learning theory led by UNH faculty}
+                \resumeItem{Engaged with research topics including robust MDPs, constrained optimization, and average reward criteria}
+            \resumeItemListEnd
+        \resumeSubheading{American Society of Mechanical Engineers (ASME)}{September 2023--Present}{Member}{University of New Hampshire}
+            \resumeItemListStart
+                \resumeItem{Engaged with industry experts regarding emerging trends and career development in Mechanical Engineering}
+            \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-------------------------------------------
 \end{document}
