@@ -132,7 +132,7 @@
     \small{\item{
      \textbf{Languages}{: Python, MATLAB, Julia, Lua/Luau} \\
      \textbf{Software \& Tools}{: Git, VS Code, SolidWorks} \\
-     \textbf{Libraries}{: pandas, NumPy, Matplotlib, CoolProp, DataFrames.jl, Plots.jl, Measurements.jl, Statistics.jl} \\
+     \textbf{Libraries}{: pandas, NumPy, Matplotlib, CoolProp, DataFrames.jl, DifferentialEquations.jl, Measurements.jl, Statistics.jl} \\
      \textbf{Certifications}{: CSWA (Certified SolidWorks Associate)}
     }}
  \end{itemize}
@@ -141,16 +141,16 @@
 \section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
+          {\textbf{Rack-Level Liquid Cooling Transient Simulation \& PID Flow Control} $|$ \emph{Julia}}{September 2026}
+          \resumeItemListStart
+            \resumeItem{Built a transient two-node (die and coolant) thermal model of a liquid-cooled rack, driven by 5–30 kW compute-load telemetry, with a PID flow controller (anti-windup, actuator saturation) and an adaptive Runge–Kutta solver}
+            \resumeItem{Cut modeled pump energy 88\% vs. full-speed cooling over a 15-minute workload (0.046 vs. 0.375 kWh, cubic pump-power scaling), with peak die temperature of 75 °C against a 70 °C setpoint (63 °C at full flow)}
+          \resumeItemListEnd
+      \resumeProjectHeading
           {\textbf{Data Center Thermal Management \& Cooling System Design} $|$ \emph{MATLAB, CoolProp}}{December 2025}
           \resumeItemListStart
             \resumeItem{Developed parametric Rankine cycle and vapor-compression refrigeration models, evaluating turbine inlet conditions and condenser temperature effects on thermal efficiency and COP}
             \resumeItem{Selected optimal facility location via climate data analysis across four ASHRAE regions, establishing thermal boundary conditions for the integrated system design}
-          \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{Turbojet Engine Cycle Analysis \& UAV Performance} $|$ \emph{MATLAB, CoolProp}}{October 2025}
-          \resumeItemListStart
-            \resumeItem{Implemented a Brayton cycle model supporting constant and variable specific heat assumptions, analyzing pressure ratio and turbine inlet temperature effects on efficiency and kinetic energy}
-            \resumeItem{Modeled engine and aerodynamic efficiency vs. altitude using ISA atmospheric data, identifying $\sim$6,000 m as the optimal cruise altitude for a NATO Class II UAV}
           \resumeItemListEnd
       \resumeProjectHeading
           {\textbf{Rock Climbing Training Tool} $|$ \emph{SolidWorks}}{June 2024 -- June 2025}
