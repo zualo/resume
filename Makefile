@@ -1,10 +1,11 @@
-NAME=resume
+NAMES = resume resume_alt
 
 all:
-	latexmk -pdf ${NAME}.tex
+	for name in $(NAMES); do latexmk -pdf $$name.tex; done
 
 clean:
-	rm -f ${NAME}.aux ${NAME}.bbl ${NAME}.bcf ${NAME}.fdb_latexmk ${NAME}.fls ${NAME}.log ${NAME}.out ${NAME}.run.xml ${NAME}.blg ${NAME}.toc *\~
+	for name in $(NAMES); do rm -f $$name.aux $$name.bbl $$name.bcf $$name.fdb_latexmk $$name.fls $$name.log $$name.out $$name.run.xml $$name.blg $$name.toc; done
+	rm -f *~
 
 distclean: clean
-	rm -f ${NAME}.pdf
+	for name in $(NAMES); do rm -f $$name.pdf; done
